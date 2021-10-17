@@ -8,7 +8,7 @@ list(APPEND CMAKE_MODULE_PATH
     )
 
 # Find and use nmos-cpp from its installed location or as a subdirectory
-set(USE_ADD_SUBDIRECTORY OFF CACHE BOOL "Use add_subdirectory() rather than find_package()")
+set(USE_ADD_SUBDIRECTORY ON CACHE BOOL "Use add_subdirectory() rather than find_package()")
 if(NOT USE_ADD_SUBDIRECTORY)
     # Using find_package() will require nmos-cpp and its dependencies (Boost, cpprestsdk, etc.)
     # to be installed and discoverable via a config-file package or find-module
