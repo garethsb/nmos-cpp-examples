@@ -8,8 +8,10 @@ list(APPEND CMAKE_MODULE_PATH
     )
 
 # Find and use nmos-cpp from its installed location or as a subdirectory
-set(USE_ADD_SUBDIRECTORY ON CACHE BOOL "Use add_subdirectory() rather than find_package()")
+set(USE_ADD_SUBDIRECTORY OFF CACHE BOOL "Use add_subdirectory() rather than find_package()")
 if(NOT USE_ADD_SUBDIRECTORY)
+    message(STATUS "Using find_package(nmos-cpp)")
+
     # Using find_package() will require nmos-cpp and its dependencies (Boost, cpprestsdk, etc.)
     # to be installed and discoverable via a config-file package or find-module
     # Conan is one way of achieving this...
@@ -21,6 +23,8 @@ if(NOT USE_ADD_SUBDIRECTORY)
     find_package(nmos-cpp REQUIRED)
 else()
     set(NMOS_CPP_DIRECTORY "../../nmos-cpp/Development" CACHE STRING "Path to nmos-cpp/Development directory")
+
+    message(STATUS "Using add_subdirectory(${NMOS_CPP_DIRECTORY})")
     add_subdirectory(${NMOS_CPP_DIRECTORY} build-nmos-cpp EXCLUDE_FROM_ALL)
 endif()
 
