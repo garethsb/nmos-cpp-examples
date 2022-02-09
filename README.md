@@ -40,7 +40,7 @@ By default this project uses [Conan](https://conan.io) to download the rest of i
    Note: The Python scripts directory needs to be added to the `PATH`, so the Conan executable can be found
 2. Run `pip install conan`, on some platforms with Python 2 and Python 3 installed this may need to be `pip3 install conan`  
    Notes:
-   - Currently, Conan 1.33 or higher is required; version 1.39 (latest release at the time) has been tested
+   - Currently, Conan 1.43 or higher is required; version 1.45 (latest release at the time) has been tested
 
 ## Build
 
