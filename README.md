@@ -18,14 +18,14 @@ Contributions are welcome.
 
 1. Download and install a recent [CMake stable release](https://cmake.org/download/#latest) for your platform  
    Notes:
-   - Currently, CMake 3.17 or higher is required; version 3.21.1 (latest release at the time) has been tested
+   - Currently, CMake 3.17 or higher is required; version 3.24.3 (latest release at the time) has been tested
    - Pre-built binary distributions are available for many platforms
    - On Linux distributions, e.g. Ubuntu 14.04 LTS (long-term support), the pre-built binary version available via ``apt-get`` may be too out-of-date  
      Fetch, build and install a suitable version:  
      ```sh
-     wget "https://cmake.org/files/v3.21/cmake-3.21.1.tar.gz"
-     tar -zxvf cmake-3.21.1.tar.gz
-     cd cmake-3.21.1
+     wget "https://cmake.org/files/v3.24/cmake-3.24.3.tar.gz"
+     tar -zxvf cmake-3.24.3.tar.gz
+     cd cmake-3.24.3
      ./bootstrap
      make
      sudo make install
@@ -40,7 +40,7 @@ By default this project uses [Conan](https://conan.io) to download the rest of i
    Note: The Python scripts directory needs to be added to the `PATH`, so the Conan executable can be found
 2. Run `pip install conan`, on some platforms with Python 2 and Python 3 installed this may need to be `pip3 install conan`  
    Notes:
-   - Currently, Conan 1.43 or higher is required; version 1.45 (latest release at the time) has been tested
+   - Currently, Conan 1.52.0 or higher is required; version 1.54.0 (latest release at the time) has been tested
 
 ## Build
 
