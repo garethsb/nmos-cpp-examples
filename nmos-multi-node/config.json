@@ -1,0 +1,11 @@
+{
+    "seed_id": "{{seed}}",
+    "logging_level": -40,
+    "domain": "local",
+    "error_log": "node-{{index+1}}.txt",
+    "http_port": {{5000+index}},
+    "events_port": -1,
+    "events_ws_port": -1,
+    "how_many": 2,
+    "label": "{{'My {} Node ({})'.format(['Foo', 'Bar', 'Baz'][index % 3], index+1)}}"
+}

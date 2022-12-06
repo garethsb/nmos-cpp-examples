@@ -73,3 +73,7 @@ cmake .. \
   -DCMAKE_BUILD_TYPE:STRING="<Debug-or-Release>"
 make
 ```
+
+## Multi-nmos-cpp-node Launcher
+
+The [nmos-multi-node](nmos-multi-node/) script enables scalability testing of NMOS systems with many Nodes.
