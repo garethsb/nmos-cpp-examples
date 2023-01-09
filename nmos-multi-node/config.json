@@ -6,6 +6,8 @@
     "http_port": {{5000+index}},
     "events_port": -1,
     "events_ws_port": -1,
-    "how_many": 2,
-    "label": "{{'My {} Node ({})'.format(['Foo', 'Bar', 'Baz'][index % 3], index+1)}}"
+    "how_many": {{index // 9 % 2 + 1}},
+    "senders": [{{['"v", "a", "d"', '"v"', '"a"'][index // 3 % 3] if index % 3 != 2}}],
+    "receivers": [{{['"v", "a", "d"', '"v"', '"a"'][index // 3 % 3] if index % 3 != 1}}],
+    "label": "{{'{}x {} {} Gizmo ({})'.format(index // 9 % 2 + 1, ['Multi', 'Video', 'Audio'][index // 3 % 3], ['Process', 'Input', 'Output'][index % 3], index+1)}}"
 }
