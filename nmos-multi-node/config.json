@@ -1,3 +1,4 @@
+{% set SEED = seed|string|upper %}
 {
     "seed_id": "{{seed}}",
     "logging_level": -40,
@@ -10,4 +11,29 @@
     "senders": [{{['"v", "a", "d"', '"v"', '"a"'][index // 3 % 3] if index % 3 != 2}}],
     "receivers": [{{['"v", "a", "d"', '"v"', '"a"'][index // 3 % 3] if index % 3 != 1}}],
     "label": "{{'{}x {} {} Gizmo ({})'.format(index // 9 % 2 + 1, ['Multi', 'Video', 'Audio'][index // 3 % 3], ['Process', 'Source', 'Destination'][index % 3], index+1)}}"
+    "node_tags": {
+        "urn:x-nmos:tag:asset:manufacturer/v1.0": [
+            "Gareth"
+        ],
+        "urn:x-nmos:tag:asset:product/v1.0": [
+            "Example Node"
+        ],
+        "urn:x-nmos:tag:asset:instance-id/v1.0": [
+            "{{SEED[-12:]}}/{{index+1}}"
+        ]
+    },
+    "device_tags": {
+        "urn:x-nmos:tag:asset:manufacturer/v1.0": [
+            "Gareth"
+        ],
+        "urn:x-nmos:tag:asset:product/v1.0": [
+            "Example Device"
+        ],
+        "urn:x-nmos:tag:asset:instance-id/v1.0": [
+            "{{SEED[-12:]}}/{{index+1}}"
+        ],
+        "urn:x-nmos:tag:asset:function/v1.0": [
+            "{{['Process', 'Source', 'Destination'][index % 3]}}"
+        ]
+    }
 }
