@@ -11,7 +11,7 @@ Contributions are welcome.
 ### Compiler
 
 * Visual Studio 2015 or higher (Visual Studio 2019 is tested on Windows 10)
-* GCC 4.9 or higher (GCC 9 is tested on Ubuntu 20.04)
+* GCC 4.9 or higher (GCC 11 is tested on Ubuntu 22.04)
 * Clang 4 or higher
 
 ### CMake
@@ -34,13 +34,15 @@ Contributions are welcome.
 
 ### Conan
 
-By default this project uses [Conan](https://conan.io) to download the rest of its dependencies.
+This project uses [Conan](https://conan.io) to download the rest of its dependencies.
 
 1. Install Python 3 if necessary  
    Note: The Python scripts directory needs to be added to the `PATH`, so the Conan executable can be found
-2. Run `pip install conan`, on some platforms with Python 2 and Python 3 installed this may need to be `pip3 install conan`  
+2. Install or upgrade Conan using `pip install --upgrade conan~=2.0.5`  
    Notes:
-   - Currently, Conan 1.52.0 or higher is required; version 1.54.0 (latest release at the time) has been tested
+   - On some platforms with Python 2 and Python 3 both installed this may need to be `pip3 install --upgrade conan~=2.0.5`
+   - Conan 2.0.5 or higher is required; dependencies may require a higher version; version 2.0.17 (latest release at the time) has been tested
+   - Conan 1.X is no longer supported
 
 ## Build
 
@@ -51,9 +53,12 @@ For example, using the Visual Studio 2019 Developer Command Prompt:
 ```sh
 mkdir build
 cd build
+conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=Debug --build=missing --output-folder=.
+conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=Release --build=missing --output-folder=.
 cmake .. ^
   -G "Visual Studio 16 2019" ^
-  -DCMAKE_CONFIGURATION_TYPES:STRING="Debug;Release"
+  -DCMAKE_CONFIGURATION_TYPES:STRING="Debug;Release" ^
+  -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
 ```
 
 Then, open and build the generated Visual Studio Solution, or use CMake's build tool mode:
@@ -64,13 +69,15 @@ cmake --build . --config <Debug-or-Release>
 
 **Linux**
 
-For example, using the default toolchain and dependencies:
+For example, using the default profile and dependencies:
 
 ```sh
 mkdir build
 cd build
+conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=<Debug-or-Release> --build=missing --output-folder=.
 cmake .. \
-  -DCMAKE_BUILD_TYPE:STRING="<Debug-or-Release>"
+  -DCMAKE_BUILD_TYPE:STRING="<Debug-or-Release>" \
+  -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
 make
 ```
 

@@ -1,2 +1,0 @@
-[requires]
-nmos-cpp/cci.20221203
