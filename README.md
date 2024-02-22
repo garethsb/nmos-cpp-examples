@@ -53,12 +53,12 @@ For example, using the Visual Studio 2019 Developer Command Prompt:
 ```sh
 mkdir build
 cd build
-conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=Debug --build=missing --output-folder=.
-conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=Release --build=missing --output-folder=.
+conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=Debug --build=missing --output-folder=conan
+conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=Release --build=missing --output-folder=conan
 cmake .. ^
   -G "Visual Studio 16 2019" ^
   -DCMAKE_CONFIGURATION_TYPES:STRING="Debug;Release" ^
-  -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
+  -DCMAKE_TOOLCHAIN_FILE=conan/conan_toolchain.cmake
 ```
 
 Then, open and build the generated Visual Studio Solution, or use CMake's build tool mode:
@@ -74,10 +74,10 @@ For example, using the default profile and dependencies:
 ```sh
 mkdir build
 cd build
-conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=<Debug-or-Release> --build=missing --output-folder=.
+conan install ../my-nmos-node -g CMakeToolchain --settings:all build_type=<Debug-or-Release> --build=missing --output-folder=conan
 cmake .. \
   -DCMAKE_BUILD_TYPE:STRING="<Debug-or-Release>" \
-  -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
+  -DCMAKE_TOOLCHAIN_FILE=conan/conan_toolchain.cmake
 make
 ```
 
