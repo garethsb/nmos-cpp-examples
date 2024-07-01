@@ -10,7 +10,7 @@
     "how_many": {{index // 9 % 2 + 1}},
     "senders": [{{['"v", "a", "d"', '"v"', '"a"'][index // 3 % 3] if index % 3 != 2}}],
     "receivers": [{{['"v", "a", "d"', '"v"', '"a"'][index // 3 % 3] if index % 3 != 1}}],
-    "label": "{{'{}x {} {} Gizmo ({})'.format(index // 9 % 2 + 1, ['Multi', 'Video', 'Audio'][index // 3 % 3], ['Process', 'Source', 'Destination'][index % 3], index+1)}}"
+    "label": "{{'{}x {} {} Gizmo ({})'.format(index // 9 % 2 + 1, ['Multi', 'Video', 'Audio'][index // 3 % 3], ['Process', 'Source', 'Destination'][index % 3], index+1)}}",
     "node_tags": {
         "urn:x-nmos:tag:asset:manufacturer/v1.0": [
             "Gareth"
